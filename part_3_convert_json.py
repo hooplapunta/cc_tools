@@ -22,6 +22,7 @@ with open(input_json_file, "r") as reader:
         new_level.time = json_level["time"]
         new_level.num_chips = json_level["num_chips"]
         new_level.upper_layer = json_level["upper_layer"]
+        new_level.lower_layer = json_level["lower_layer"]
 
         for json_field in json_level["optional_fields"]:
             field_type = json_field["field_type"]
@@ -67,5 +68,5 @@ with open(input_json_file, "r") as reader:
         new_level_pack.add_level(new_level)
 
     cc_dat_utils.write_cc_level_pack_to_dat(new_level_pack, "data/rchew_cc1.dat")
-    level_pack_from_dat = cc_dat_utils.make_cc_level_pack_from_dat("data/rchew_cc1.json")
+    level_pack_from_dat = cc_dat_utils.make_cc_level_pack_from_dat("data/rchew_cc1.dat")
     print(level_pack_from_dat)
